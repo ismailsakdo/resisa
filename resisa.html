@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Komuniti Lestari Sifar Sisa (ReSisa)</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;400&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Montserrat', Arial, sans-serif;
+      background: #f5fcf7;
+      margin: 0;
+      padding: 0;
+      color: #202022;
+    }
+    header {
+      background: linear-gradient(90deg, #4cc18e 0%, #5da9e9 100%);
+      color: #fff;
+      padding: 42px 0 24px 0;
+      text-align: center;
+      letter-spacing: 0.5px;
+    }
+    header img {
+      width: 74px;
+      margin-bottom: 10px;
+    }
+    h1 {
+      font-size: 2rem;
+      margin: 0 0 10px 0;
+    }
+    h2 {
+      color: #138e44;
+      margin-top: 10px;
+    }
+    nav {
+      background: #24667a;
+      display: flex;
+      justify-content: center;
+      font-size: 1em;
+      box-shadow: 0 2px 5px #0000000f;
+    }
+    nav .menu {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      flex-wrap: wrap;
+    }
+    nav .menu li {
+      position: relative;
+    }
+    nav .menu li a {
+      display: block;
+      color: #fff;
+      padding: 16px 26px;
+      text-decoration: none;
+      transition: background 0.2s;
+    }
+    nav .menu li a.active, nav .menu li a:hover {
+      background: #05d87b;
+      color: #fff;
+      border-bottom: 4px solid #ffee57;
+    }
+    section {
+      max-width: 900px;
+      margin: 36px auto;
+      background: #fff;
+      border-radius: 16px;
+      box-shadow: 0 4px 16px rgba(34, 197, 94, .07), 0 1.5px 4px rgba(34, 197, 94, .07);
+      padding: 36px 32px;
+      display: none;
+      animation: fadeIn 0.4s;
+    }
+    @keyframes fadeIn { from{opacity:0;} to{opacity:1;}}
+    section.active { display: block; }
+    .img-section {
+      display: flex;
+      justify-content: center;
+      gap: 1.4em;
+      margin: 20px 0 12px 0;
+      flex-wrap: wrap;
+    }
+    .img-section img {
+      width: 146px;
+      border-radius: 12px;
+      background: #e8f7ee;
+      box-shadow: 0 1px 8px #26e96210;
+      padding: 10px;
+    }
+    ul, ol {
+      margin: 1em 0 1em 0.6em;
+      padding-left: 1.2em;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 18px 0 8px 0;
+      background: #f8fbe5;
+    }
+    th, td {
+      border: 1px solid #c6e7d3;
+      text-align: center;
+      padding: 10px 6px;
+    }
+    th { background: #c6efd9; }
+    .small { font-size: 0.99em; color: #188abb; opacity: .82; }
+    .cta {
+      background: #ffe36e;
+      color: #05755c;
+      text-align: center;
+      padding: 19px 8px;
+      border-radius: 9px;
+      font-size: 1.13em;
+      margin-top: 20px;
+      font-weight: bold;
+      box-shadow: 0 2px 10px #ffeb3b22;
+    }
+    .step {
+      background: #e3fef5;
+      border-left: 6px solid #68d336;
+      padding: 12px 18px 12px 12px;
+      margin: 22px 0 10px 0;
+      border-radius: 6px;
+    }
+    .dashboard-pict {
+      display: flex;
+      justify-content: center;
+      margin: 16px 0;
+    }
+    .dashboard-pict img {
+      width: 240px;
+      background: #e6f3fd;
+      border-radius: 20px;
+      padding: 18px;
+    }
+    @media (max-width: 970px) { section {padding: 16px;} }
+    @media (max-width: 670px) {
+      .img-section, .dashboard-pict { flex-direction: column;align-items:center;}
+      .img-section img, .dashboard-pict img {width: 120px;margin-bottom:14px;}
+    }
+    .step-list li {margin-bottom:12px;}
+    .qr-center { display: flex; justify-content: center; align-items: center; margin: 24px 0;}
+    .qr-center img { width: 180px; border-radius: 10px; box-shadow:0 2px 10px #54ba6822;}
+  </style>
+  <script>
+    function showSection(id) {
+      var sections = document.querySelectorAll('section');
+      var menuItems = document.querySelectorAll('nav .menu li a');
+      sections.forEach(function(sec) { sec.classList.remove('active'); });
+      document.getElementById(id).classList.add('active');
+      menuItems.forEach(function(a) { a.classList.remove('active'); });
+      document.getElementById('menu-' + id).classList.add('active');
+    }
+    window.onload = function() { showSection('pengenalan'); };
+  </script>
+</head>
+<body>
+<header>
+  <img src="https://cdn-icons-png.flaticon.com/512/684/684908.png" alt="Logo ReSisa">
+  <h1>Komuniti Lestari Sifar Sisa (ReSisa)</h1>
+  <div>Pengurusan Sisa Digital & Inovasi Tenaga Komuniti</div>
+  <div class="small" style="margin-top:7px;">
+    Projek Libatsama Universiti-Komuniti | Dr. Syazwan Aizat Ismail, USM
+  </div>
+</header>
+
+<nav>
+  <ul class="menu">
+    <li><a id="menu-pengenalan" href="javascript:showSection('pengenalan')">Pengenalan</a></li>
+    <li><a id="menu-cabaran" href="javascript:showSection('cabaran')">Cabaran</a></li>
+    <li><a id="menu-strategi" href="javascript:showSection('strategi')">Strategi & Modul</a></li>
+    <li><a id="menu-digital" href="javascript:showSection('digital')">Digitalisasi</a></li>
+    <li><a id="menu-inovasi" href="javascript:showSection('inovasi')">Inovasi MFC</a></li>
+    <li><a id="menu-penilaian" href="javascript:showSection('penilaian')">Penilaian & Pelaporan</a></li>
+    <li><a id="menu-info" href="javascript:showSection('info')">Maklumat</a></li>
+    <li><a id="menu-daftar" href="javascript:showSection('daftar')">Daftar QR</a></li>
+  </ul>
+</nav>
+
+<section id="pengenalan" class="active">
+  <h2>Visi Program</h2>
+  <p>
+    <b>Komuniti Lestari Sifar Sisa</b> (ReSisa) ialah inisiatif USM dan komuniti KRT Jalan Kuala Dua untuk mengurangkan sisa rumah tangga dengan:
+    <ul>
+      <li>Pendidikan amalan lestari (3R),</li>
+      <li>Pengurusan sisa dengan aplikasi digital moden,</li>
+      <li>Gabungan inovasi bioteknologi <b>Sel Bahan Api Mikrob (MFC)</b> bagi menjana tenaga dari sisa organik.</li>
+    </ul>
+    Sasaran: <b>100 isi rumah</b> selama <b>12 bulan</b>.
+  </p>
+  <div class="img-section">
+    <img src="https://cdn-icons-png.flaticon.com/512/2920/2920080.png" alt="Kerjasama komuniti">
+    <img src="https://cdn-icons-png.flaticon.com/512/564/564619.png" alt="Perubahan hijau">
+    <img src="https://cdn-icons-png.flaticon.com/512/3580/3580168.png" alt="Tenaga inovasi">
+  </div>
+</section>
+
+<section id="cabaran">
+  <h2>Cabaran & Rationale</h2>
+  <ul>
+    <li>Kadar <b>kitar semula & pengasingan</b> di rumah sangat rendah.</li>
+    <li>Sisa makanan bercampur sisa lain, membebankan tapak pelupusan.</li>
+    <li>Perosak (tikus, lalat) bertambah, dan risiko kesihatan meningkat.</li>
+    <li>Pengetahuan & motivasi komuniti untuk amalan 3R masih lemah.</li>
+    <li>Keperluan solusi lestari yang mudah serta digital dan boleh diikuti semua lapisan.</li>
+  </ul>
+  <div class="img-section">
+    <img src="https://cdn-icons-png.flaticon.com/512/3081/3081559.png" alt="Cabaran Sisa">
+    <img src="https://cdn-icons-png.flaticon.com/512/2269/2269948.png" alt="Sisa Makanan">
+  </div>
+</section>
+
+<section id="strategi">
+  <h2>Strategi Program & Modul Bengkel</h2>
+  <div class="step">
+    <b>1. Pengambilan & Penilaian Awal</b><br>
+    Pemilihan 100 isi rumah. Tinjauan awal (baseline) untuk menilai amalan & pengetahuan semasa.
+  </div>
+  <div class="step">
+    <b>2. Bengkel Bina Upaya Komprehensif (5 Sesi)</b>
+    <ol class="step-list">
+      <li><b>Asas Pengurusan Sisa Pepejal</b> & kepentingan 3R (Kurangkan, Guna Semula, Kitar Semula).</li>
+      <li><b>Teknik Pengasingan Sisa:</b> plastik, kertas, kaca, logam & sisa organik.</li>
+      <li><b>Pengurusan Sisa Organik:</b> Kompos sederhana, pengumpulan sisa untuk MFC.</li>
+      <li><b>Pengenalan MFC:</b> Prinsip, faedah, aplikasi MFC kecil.</li>
+      <li><b>Latihan Praktikal Aplikasi ReSisa:</b> Cara melapor & rekod sisa setiap minggu dengan telefon pintar.</li>
+    </ol>
+  </div>
+  <div class="img-section">
+    <img src="https://cdn-icons-png.flaticon.com/512/2659/2659360.png" alt="Bengkel Latihan">
+    <img src="https://cdn-icons-png.flaticon.com/512/2329/2329055.png" alt="Teknik 3R">
+  </div>
+</section>
+
+<section id="digital">
+  <h2>Digitalisasi Pengurusan Sisa: Aplikasi ReSisa</h2>
+  <ol>
+    <li>
+      <b>Muat turun & guna aplikasi ReSisa</b> – setiap rumah wajib guna.
+    </li>
+    <li>
+      <b>Laporan mingguan:</b>
+      <ul>
+        <li>Kategori sisa (Kitar semula, Organik), jumlah anggaran, gambar & lokasi.</li>
+        <li>Laporan isu sampah di kawasan sekitar secara langsung.</li>
+      </ul>
+    </li>
+    <li>
+      <b>Papan Pemuka Komuniti (Dashboard):</b><br>
+      Pantau data pengasingan sisa secara masa nyata. Lihat kedudukan/rekod untuk pertandingan komuniti.
+    </li>
+    <li>
+      <b>Pertandingan & Ganjaran:</b>
+      <ul>
+        <li>Sistem mata berdasarkan kekerapan & kualiti pengasingan sisa.</li>
+        <li>Insentif kecil diberikan setiap suku tahun untuk pemenang paling aktif.</li>
+      </ul>
+    </li>
+  </ol>
+  <div class="dashboard-pict">
+    <img src="https://cdn-icons-png.flaticon.com/512/3482/3482439.png" alt="Aplikasi digital ReSisa">
+  </div>
+</section>
+
+<section id="inovasi">
+  <h2>Inovasi Komuniti: Sel Bahan Api Mikrob (MFC)</h2>
+  <ol>
+    <li>
+      <b>Pembinaan prototaip MFC komuniti:</b>
+      <ul>
+        <li>Bahan mesra alam & sisa organik komuniti digunakan.</li>
+        <li>Sesi demonstrasi untuk komuniti: sisa diubah menjadi tenaga elektrik kecil.</li>
+      </ul>
+    </li>
+    <li>
+      <b>Peningkatan kesedaran:</b> Komuniti sendiri lihat potensi "waste-to-energy" dan teknologi hijau.
+    </li>
+  </ol>
+  <div class="img-section">
+    <img src="https://cdn-icons-png.flaticon.com/512/899/899639.png" alt="Sel Bahan Api Mikrob MFC">
+    <img src="https://cdn-icons-png.flaticon.com/512/4362/4362456.png" alt="Hasil Tenaga Hijau">
+  </div>
+</section>
+
+<section id="penilaian">
+  <h2>Pemantauan, Penilaian & Pelaporan</h2>
+  <ul>
+    <li>
+      <b>Pemantauan Berterusan:</b> Data ReSisa dianalisis sepanjang program.<br>
+      Tinjauan pertengahan & akhir: ukur perubahan pengetahuan, sikap & amalan.
+    </li>
+    <li>
+      <b>Audit sisa sampel:</b> Sahkan laporan pengasingan sisa.</li>
+    <li>
+      <b>Maklum balas berkala:</b> Pembentangan berkala kepada komuniti untuk penambahbaikan segera.
+    </li>
+    <li>
+      <b>Pelaporan & Dokumentasi Lengkap:</b> Laporan kemajuan & akhir: kejayaan, cabaran & pelajaran untuk kesinambungan projek.<br>
+      Bahan dokumentasi (gambar aktiviti, testimoni, statistik).
+    </li>
+  </ul>
+  <div class="img-section">
+    <img src="https://cdn-icons-png.flaticon.com/512/7744/7744064.png" alt="Audit Data">
+    <img src="https://cdn-icons-png.flaticon.com/512/5859/5859160.png" alt="Penilaian Komuniti">
+  </div>
+</section>
+
+<section id="info">
+  <h2>Maklumat & Penyertaan</h2>
+  <ul>
+    <li><b>Sasaran:</b> 100 isi rumah di sekitar komuniti KRT Jalan Baru</li>
+    <li><b>Tempoh:</b> 12 bulan</li>
+    <li><b>Modul:</b> Tinjauan awal, 5 bengkel, guna aplikasi, pembangunan & demonstrasi MFC, pertandingan, audit & laporan</li>
+    <li><b>Kolaborasi:</b> USM, komuniti, pakar bioteknologi</li>
+  </ul>
+  <div class="img-section">
+    <img src="https://cdn-icons-png.flaticon.com/512/1680/1680768.png" alt="Komuniti Sihat">
+    <img src="https://cdn-icons-png.flaticon.com/512/9149/9149272.png" alt="Penyertaan Ramai">
+  </div>
+  <div class="cta">
+    Untuk pertanyaan atau daftar penyertaan:<br>
+    <b>Dr. Syazwan Aizat bin Ismail</b><br>
+    Emel: drsai@usm.my <br>
+    Telefon: 014-9664113
+  </div>
+</section>
+
+<section id="daftar">
+  <h2>Daftar – Imbas QR Code</h2>
+  <p>
+    Sila imbas QR code di bawah untuk capaian pantas ke laman pendaftaran atau maklumat program:
+  </p>
+  <div class="qr-center">
+    <!-- QR code image from bit.ly_resisa25.jpg -->
+    <img src="bit.ly_resisa25.png" alt="QR Code ReSisa" />
+  </div>
+  <div style="text-align:center;margin:24px 0 0 0;">
+    <b>Jika sukar mengimbas, sila hubungi:</b><br>
+    Dr. Syazwan Aizat bin Ismail – <span style="color:#13935e">drsai@usm.my</span><br>
+    Tel: 014-9664113
+  </div>
+</section>
+
+</body>
+</html>
